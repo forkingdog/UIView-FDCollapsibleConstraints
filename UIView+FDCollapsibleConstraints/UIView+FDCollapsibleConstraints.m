@@ -23,7 +23,7 @@
 #import "UIView+FDCollapsibleConstraints.h"
 #import <objc/runtime.h>
 
-/// BALABALA
+/// A stored property extension for NSLayoutConstraint's original constant.
 @implementation NSLayoutConstraint (_FDOriginalConstantStorage)
 
 - (void)setFd_originalConstant:(CGFloat)originalConstant
@@ -44,10 +44,13 @@
 
 @implementation UIView (FDCollapsibleConstraints)
 
-#pragma mark - Hacking KVC
+#pragma mark - KVC Hack
 
 + (void)load
 {
+    // swizzle setValue:forKey: to intercept assignments to `fd_collapsibleConstraints`
+    // from Interface Builder. We should not do so by overriding setvalue:forKey:
+    // as the primary class implementation would be bypassed.
     SEL originalSelector = @selector(setValue:forKey:);
     SEL swizzledSelector = @selector(fd_setValue:forKey:);
 
@@ -62,13 +65,15 @@
 {
     NSString *injectedKey = [NSString stringWithUTF8String:sel_getName(@selector(fd_collapsibleConstraints))];
     if ([key isEqualToString:injectedKey]) {
+        // hook assignments to our custom `fd_collapsibleConstraints` property.
         NSMutableArray *constraints = (NSMutableArray *)self.fd_collapsibleConstraints;
-        [constraints enumerateObjectsUsingBlock:
+        [value enumerateObjectsUsingBlock:
          ^(NSLayoutConstraint *constraint, NSUInteger idx, BOOL *stop) {
              constraint.fd_originalConstant = constraint.constant;
              [constraints addObject:constraint];
         }];
     } else {
+        // forward the rest of KVC's to original implementation.
         [self fd_setValue:value forKey:key];
     }
 }
@@ -102,6 +107,12 @@
         objc_setAssociatedObject(self, _cmd, constraints, OBJC_ASSOCIATION_RETAIN);
     }
     return constraints;
+}
+
+- (void)setFd_collapsibleConstraints:(NSArray *)fd_collapsibleConstraints
+{
+    NSMutableArray *constraints = (NSMutableArray *)self.fd_collapsibleConstraints;
+    [constraints setArray:fd_collapsibleConstraints];
 }
 
 @end
