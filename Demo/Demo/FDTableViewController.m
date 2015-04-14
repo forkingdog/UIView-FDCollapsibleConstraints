@@ -1,22 +1,22 @@
 //
-//  FLTableViewController.m
+//  FDTableViewController.m
 //  FlowLayoutCell
 //
 //  Created by Phil on 15/4/9.
 //  Copyright (c) 2015年 Phil. All rights reserved.
 //
 
-#import "FLTableViewController.h"
-#import "FLTableViewCell.h"
-#import "FLListEntity.h"
+#import "FDTableViewController.h"
+#import "FDTableViewCell.h"
+#import "FDListEntity.h"
 
-@interface FLTableViewController ()
+@interface FDTableViewController ()
 
 @property NSArray *entities;
 
 @end
 
-@implementation FLTableViewController
+@implementation FDTableViewController
 
 - (void)viewDidLoad
 {
@@ -29,27 +29,27 @@
 - (void)seed
 {
     self.entities = @[
-        [FLListEntity entityWithTitle:@"Only text"
+        [FDListEntity entityWithTitle:@"Only text"
                               content:@"content"
                                images:@[]
                              andAudio:NO],
-        [FLListEntity entityWithTitle:@"Only audio"
+        [FDListEntity entityWithTitle:@"Only audio"
                               content:@""
                                images:@[]
                              andAudio:YES],
-        [FLListEntity entityWithTitle:@"Text + image"
+        [FDListEntity entityWithTitle:@"Text + image"
                               content:@"content"
                                images:@[@"image1"]
                              andAudio:NO],
-        [FLListEntity entityWithTitle:@"Audio + images"
+        [FDListEntity entityWithTitle:@"Audio + images"
                               content:@""
                                images:@[@"image1"]
                              andAudio:YES],
-        [FLListEntity entityWithTitle:@"Text + Audio + images"
+        [FDListEntity entityWithTitle:@"Text + Audio + images"
                               content:@"content"
                                images:@[@"image1"]
                              andAudio:YES],
-        [FLListEntity entityWithTitle:@"Text + Audio + images"
+        [FDListEntity entityWithTitle:@"Text + Audio + images"
                               content:@"content content content content content content content content content content content content content content content content "
                                images:@[@"image1"]
                              andAudio:YES]
@@ -71,11 +71,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row >= self.entities.count) {
-        return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FLEmptyCell"];
+        return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FDEmptyCell"];
     }
 
-    NSString *identifier = NSStringFromClass([FLTableViewCell class]);
-    FLTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    NSString *identifier = NSStringFromClass([FDTableViewCell class]);
+    FDTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     cell.entity = self.entities[indexPath.row];
     return cell;
 }
@@ -86,8 +86,8 @@
         return 0;
     }
 
-    NSString *identifier = NSStringFromClass([FLTableViewCell class]);
-    CGFloat height = [self zd_cellHeightWithReuseIdentifier:identifier configuration:^(FLTableViewCell *cell) {
+    NSString *identifier = NSStringFromClass([FDTableViewCell class]);
+    CGFloat height = [self cellHeightWithReuseIdentifier:identifier configuration:^(FDTableViewCell *cell) {
         cell.entity = self.entities[indexPath.row];
     }];
     return height;
@@ -100,7 +100,8 @@
 
 #pragma mark - Auto Layout Cell
 
-- (CGFloat)zd_cellHeightWithReuseIdentifier:(NSString *)identifier configuration:(void (^)(id))configuration
+/// code pulled out from FDAutoLayoutCell.
+- (CGFloat)cellHeightWithReuseIdentifier:(NSString *)identifier configuration:(void (^)(id))configuration
 {
     static UITableViewCell *layoutCell;
     if (!layoutCell) {
@@ -109,17 +110,18 @@
 
     !configuration ?: configuration(layoutCell);
 
+    // add fixed width constraint to confine multiline labels
     const CGFloat width = CGRectGetWidth(self.tableView.frame);
     UIView *contentView = layoutCell.contentView;
     id widthConstraint = [NSLayoutConstraint constraintWithItem:contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:width];
-
-    // add fixed width constraint to wrap labels
     [contentView addConstraint:widthConstraint];
-    
+
+    // calculate size with auto layout using system's method
     CGSize size = [layoutCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     
     [contentView removeConstraint:widthConstraint];
-    
+
+    // fix for UITableViewCell selected state
     if (self.tableView.separatorStyle != UITableViewCellSeparatorStyleNone) {
         size.height += 0.5;
     }

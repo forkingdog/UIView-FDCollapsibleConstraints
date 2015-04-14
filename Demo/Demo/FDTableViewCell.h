@@ -1,5 +1,5 @@
 //
-//  FLTableViewCell.h
+//  FDTableViewCell.h
 //  FlowLayoutCell
 //
 //  Created by Phil on 15/4/9.
@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class  FLListEntity;
+@class FDListEntity;
 
-@interface FLTableViewCell : UITableViewCell
+@interface FDTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) FLListEntity *entity;
+@property (nonatomic, strong) FDListEntity *entity;
 
 @end

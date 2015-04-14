@@ -1,5 +1,5 @@
 //
-//  FLListEntity.h
+//  FDListEntity.h
 //  FlowLayoutCell
 //
 //  Created by Phil on 15/4/9.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FLListEntity : NSObject
+@interface FDListEntity : NSObject
 
 @property (nonatomic, copy)  NSString *title;
 @property (nonatomic, copy)  NSString *content;

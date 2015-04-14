@@ -1,18 +1,18 @@
 //
-//  FLListEntity.m
+//  FDListEntity.m
 //  FlowLayoutCell
 //
 //  Created by Phil on 15/4/9.
 //  Copyright (c) 2015年 Phil. All rights reserved.
 //
 
-#import "FLListEntity.h"
+#import "FDListEntity.h"
 
-@implementation FLListEntity
+@implementation FDListEntity
 
 + (instancetype)entityWithTitle:(NSString *)title content:(NSString *)content images:(NSArray *)images andAudio:(BOOL)hasAudio
 {
-    FLListEntity *entity = [[self alloc] init];
+    FDListEntity *entity = [[self alloc] init];
 
     entity.title = title;
     entity.content = content;

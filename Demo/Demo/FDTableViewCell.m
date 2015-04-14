@@ -1,16 +1,16 @@
 //
-//  FLTableViewCell.m
+//  FDTableViewCell.m
 //  FlowLayoutCell
 //
 //  Created by Phil on 15/4/9.
 //  Copyright (c) 2015年 Phil. All rights reserved.
 //
 
-#import "FLTableViewCell.h"
-#import "FLListEntity.h"
+#import "FDTableViewCell.h"
+#import "FDListEntity.h"
 #import "UIView+FDCollapsibleConstraints.h"
 
-@interface FLTableViewCell ()
+@interface FDTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel     *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel     *contentLabel;
@@ -19,9 +19,9 @@
 
 @end
 
-@implementation FLTableViewCell
+@implementation FDTableViewCell
 
-- (void)setEntity:(FLListEntity *)entity
+- (void)setEntity:(FDListEntity *)entity
 {
     _entity = entity;
 

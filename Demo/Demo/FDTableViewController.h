@@ -1,5 +1,5 @@
 //
-//  FLTableViewController.h
+//  FDTableViewController.h
 //  FlowLayoutCell
 //
 //  Created by Phil on 15/4/9.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FLTableViewController : UITableViewController
+@interface FDTableViewController : UITableViewController
 
 @end
 
