@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.source       = { :git => "https://github.com/forkingdog/UIView-FDCollapsibleConstraints.git", :tag => "1.0" }
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  s.source_files  = "UIView-FDCollapsibleConstraints/*.{h,m}"
+  s.source_files  = "UIView+FDCollapsibleConstraints/*.{h,m}"
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.requires_arc = true
 end
