@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <FileRef
-      location = "group:Demo/Demo.xcodeproj">
-   </FileRef>
    <Group
-      location = "group:UIView+FDCollapsibleConstraints"
-      name = "UIView+FDCollapsibleConstraints">
+      location = "group:Classes"
+      name = "Classes">
       <FileRef
          location = "group:UIView+FDCollapsibleConstraints.h">
       </FileRef>
@@ -14,4 +11,7 @@
          location = "group:UIView+FDCollapsibleConstraints.m">
       </FileRef>
    </Group>
+   <FileRef
+      location = "group:Demo/Demo.xcodeproj">
+   </FileRef>
 </Workspace>

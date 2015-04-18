@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48FC0BF51AE20ED500ECA845 /* UIView+FDCollapsibleConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0BF41AE20ED500ECA845 /* UIView+FDCollapsibleConstraints.m */; };
 		4A40B0971ADCE7620018D61D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A40B0961ADCE7620018D61D /* main.m */; };
 		4A40B09A1ADCE7620018D61D /* FDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A40B0991ADCE7620018D61D /* FDAppDelegate.m */; };
 		4A40B0A21ADCE7620018D61D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A40B0A11ADCE7620018D61D /* Images.xcassets */; };
 		4A40B0A51ADCE7620018D61D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A40B0A31ADCE7620018D61D /* LaunchScreen.xib */; };
-		4A40B0BD1ADCE7D00018D61D /* UIView+FDCollapsibleConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A40B0BB1ADCE7D00018D61D /* UIView+FDCollapsibleConstraints.m */; };
 		4A40B0C41ADCE7F50018D61D /* FDListEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A40B0BF1ADCE7F50018D61D /* FDListEntity.m */; };
 		4A40B0C51ADCE7F50018D61D /* FDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A40B0C11ADCE7F50018D61D /* FDTableViewCell.m */; };
 		4A40B0C61ADCE7F50018D61D /* FDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A40B0C31ADCE7F50018D61D /* FDTableViewController.m */; };
@@ -19,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48FC0BF31AE20ED500ECA845 /* UIView+FDCollapsibleConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FDCollapsibleConstraints.h"; sourceTree = "<group>"; };
+		48FC0BF41AE20ED500ECA845 /* UIView+FDCollapsibleConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FDCollapsibleConstraints.m"; sourceTree = "<group>"; };
 		4A40B0911ADCE7620018D61D /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A40B0951ADCE7620018D61D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A40B0961ADCE7620018D61D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -26,8 +28,6 @@
 		4A40B0991ADCE7620018D61D /* FDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAppDelegate.m; sourceTree = "<group>"; };
 		4A40B0A11ADCE7620018D61D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4A40B0A41ADCE7620018D61D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		4A40B0BA1ADCE7D00018D61D /* UIView+FDCollapsibleConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FDCollapsibleConstraints.h"; sourceTree = "<group>"; };
-		4A40B0BB1ADCE7D00018D61D /* UIView+FDCollapsibleConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FDCollapsibleConstraints.m"; sourceTree = "<group>"; };
 		4A40B0BE1ADCE7F50018D61D /* FDListEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDListEntity.h; sourceTree = "<group>"; };
 		4A40B0BF1ADCE7F50018D61D /* FDListEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDListEntity.m; sourceTree = "<group>"; };
 		4A40B0C01ADCE7F50018D61D /* FDTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDTableViewCell.h; sourceTree = "<group>"; };
@@ -48,6 +48,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48FC0BF21AE20ED500ECA845 /* FDCollapsibleConstraints */ = {
+			isa = PBXGroup;
+			children = (
+				48FC0BF31AE20ED500ECA845 /* UIView+FDCollapsibleConstraints.h */,
+				48FC0BF41AE20ED500ECA845 /* UIView+FDCollapsibleConstraints.m */,
+			);
+			name = FDCollapsibleConstraints;
+			path = ../../Classes;
+			sourceTree = "<group>";
+		};
 		4A40B0881ADCE7620018D61D = {
 			isa = PBXGroup;
 			children = (
@@ -67,7 +77,7 @@
 		4A40B0931ADCE7620018D61D /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				4A40B0BC1ADCE7D00018D61D /* UIView+FDCollapsibleConstraints */,
+				48FC0BF21AE20ED500ECA845 /* FDCollapsibleConstraints */,
 				4A40B0C71ADCE8120018D61D /* Main.storyboard */,
 				4A40B0981ADCE7620018D61D /* FDAppDelegate.h */,
 				4A40B0991ADCE7620018D61D /* FDAppDelegate.m */,
@@ -91,16 +101,6 @@
 				4A40B0961ADCE7620018D61D /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4A40B0BC1ADCE7D00018D61D /* UIView+FDCollapsibleConstraints */ = {
-			isa = PBXGroup;
-			children = (
-				4A40B0BA1ADCE7D00018D61D /* UIView+FDCollapsibleConstraints.h */,
-				4A40B0BB1ADCE7D00018D61D /* UIView+FDCollapsibleConstraints.m */,
-			);
-			name = "UIView+FDCollapsibleConstraints";
-			path = "../../UIView+FDCollapsibleConstraints";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,8 +174,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A40B0C61ADCE7F50018D61D /* FDTableViewController.m in Sources */,
-				4A40B0BD1ADCE7D00018D61D /* UIView+FDCollapsibleConstraints.m in Sources */,
 				4A40B0C41ADCE7F50018D61D /* FDListEntity.m in Sources */,
+				48FC0BF51AE20ED500ECA845 /* UIView+FDCollapsibleConstraints.m in Sources */,
 				4A40B0C51ADCE7F50018D61D /* FDTableViewCell.m in Sources */,
 				4A40B09A1ADCE7620018D61D /* FDAppDelegate.m in Sources */,
 				4A40B0971ADCE7620018D61D /* main.m in Sources */,
