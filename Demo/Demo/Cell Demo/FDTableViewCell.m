@@ -27,7 +27,11 @@
 
     self.titleLabel.text = entity.title;
     self.contentLabel.text = entity.content;
-    self.thumbImageView.image = [UIImage imageNamed:entity.imageName];
+    if (entity.imageName.length) {
+        self.thumbImageView.image = [UIImage imageNamed:entity.imageName];
+    } else {
+        self.thumbImageView.image = nil;
+    }
     self.audioBubble.fd_collapsed = !entity.hasAudioClip;
 }
 

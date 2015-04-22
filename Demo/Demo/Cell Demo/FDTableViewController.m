@@ -22,8 +22,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-
     [self buildTestDataThen:^{
         [self.tableView reloadData];
     }];
@@ -70,6 +68,7 @@
 {
     FDTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FDTableViewCell" forIndexPath:indexPath];
     cell.entity = self.entities[indexPath.row];
+    cell.contentView.bounds = CGRectMake(0, 0, 9999, 9999);
     return cell;
 }
 
