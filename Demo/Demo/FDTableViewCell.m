@@ -25,21 +25,10 @@
 {
     _entity = entity;
 
-    self.contentLabel.fd_collapsed = !entity.hasContent;
-    self.audioBubble.fd_collapsed = !entity.hasAudioClip;
-    self.thumbImageView.fd_collapsed = !entity.hasImages;
-
     self.titleLabel.text = entity.title;
-
-    if (entity.hasContent) {
-        self.contentLabel.text = entity.content;
-    } else {
-        self.contentLabel.text = nil;
-    }
-
-    if (entity.hasImages) {
-//        self.thumbImageView.image = [UIImage imageNamed:entity.images[0]];
-    }
+    self.contentLabel.text = entity.content;
+    self.thumbImageView.image = [UIImage imageNamed:entity.imageName];
+    self.audioBubble.fd_collapsed = !entity.hasAudioClip;
 }
 
 @end

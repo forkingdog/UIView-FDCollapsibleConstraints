@@ -10,14 +10,11 @@
 
 @interface FDListEntity : NSObject
 
-@property (nonatomic, copy)  NSString *title;
-@property (nonatomic, copy)  NSString *content;
-@property (nonatomic, strong) NSArray *images;
-@property (nonatomic, assign) BOOL     hasAudioClip;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
-+ (instancetype)entityWithTitle:(NSString *)title content:(NSString *)content images:(NSArray *)images andAudio:(BOOL)hasAudio;
-
-- (BOOL)hasImages;
-- (BOOL)hasContent;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *content;
+@property (nonatomic, copy) NSString *imageName;
+@property (nonatomic, assign) BOOL hasAudioClip;
 
 @end

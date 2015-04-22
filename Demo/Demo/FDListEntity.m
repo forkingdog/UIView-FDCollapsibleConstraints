@@ -10,28 +10,16 @@
 
 @implementation FDListEntity
 
-+ (instancetype)entityWithTitle:(NSString *)title content:(NSString *)content images:(NSArray *)images andAudio:(BOOL)hasAudio
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
-    FDListEntity *entity = [[self alloc] init];
-
-    entity.title = title;
-    entity.content = content;
-    entity.hasAudioClip = hasAudio;
-    if (images.count > 0) {
-        entity.images = images;
+    self = super.init;
+    if (self) {
+        self.title = dictionary[@"title"];
+        self.content = dictionary[@"content"];
+        self.imageName = dictionary[@"imageName"];
+        self.hasAudioClip = [dictionary[@"audio"] boolValue];
     }
-
-    return entity;
-}
-
-- (BOOL)hasImages
-{
-    return self.images.count > 0;
-}
-
-- (BOOL)hasContent
-{
-    return self.content.length > 0;
+    return self;
 }
 
 @end

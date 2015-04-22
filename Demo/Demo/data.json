@@ -1,0 +1,52 @@
+{
+    "list": [
+             {
+             "title": "Title Only",
+             "content": "",
+             "audio": 0,
+             "imageName": ""
+             },
+             {
+             "title": "Title + Content",
+             "content": "To be, or not to be —that is the question, Whether'tis nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them. To die —to sleep",
+             "audio": 0,
+             "imageName": ""
+             },
+             {
+             "title": "Title + Audio",
+             "content": "",
+             "audio": 1,
+             "imageName": ""
+             },
+             {
+             "title": "Title + Audio + Image",
+             "content": "",
+             "audio": 1,
+             "imageName": "forkingdog"
+             },
+             {
+             "title": "Title + Image",
+             "content": "",
+             "audio": 0,
+             "imageName": "forkingdog"
+             },
+             {
+             "title": "Title + Content + Image",
+             "content": "To be, or not to be —that is the question, Whether'tis nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them. To die —to sleep",
+             "audio": 0,
+             "imageName": "forkingdog"
+             },
+             {
+             "title": "Title + Content + Audio",
+             "content": "To be, or not to be —that is the question, Whether'tis nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them. To die —to sleep",
+             "audio": "1",
+             "imageName": ""
+             },
+             {
+             "title": "Title + Content + Audio + Image",
+             "content": "To be, or not to be —that is the question, Whether'tis nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them. To die —to sleep",
+             "audio": "1",
+             "imageName": "forkingdog"
+             },
+             ]
+}

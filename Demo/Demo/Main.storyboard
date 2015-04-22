@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -11,7 +11,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="yXu-0R-QUA">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.16663484782562948" green="0.58501025883838387" blue="0.2482050437679737" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.27843138575553894" green="0.69411766529083252" blue="0.15686275064945221" alpha="1" colorSpace="deviceRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -25,11 +25,11 @@
             </objects>
             <point key="canvasLocation" x="-78.933333333333337" y="60.586666666666666"/>
         </scene>
-        <!--Flow Layout Cell Test-->
+        <!--FDCollapsibleConstraints-->
         <scene sceneID="VgW-fR-Quf">
             <objects>
                 <tableViewController id="pGg-6v-bdr" customClass="FDTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="212" sectionHeaderHeight="22" sectionFooterHeight="22" id="mLL-gJ-YKr">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="212" sectionHeaderHeight="22" sectionFooterHeight="22" id="mLL-gJ-YKr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,30 +42,18 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIQ-P0-RJy">
-                                            <rect key="frame" x="20" y="8" width="69" height="17"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="17" id="O98-zz-3gQ"/>
-                                            </constraints>
+                                            <rect key="frame" x="20" y="8" width="340" height="17"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.41960784313725491" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Content Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MU0-gY-3S7">
-                                            <rect key="frame" x="20" y="29" width="85" height="16"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <connections>
-                                                <outletCollection property="fd_collapsibleConstraints" destination="NF7-dF-BMA" id="8Ve-Lo-rD4"/>
-                                            </connections>
-                                        </label>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8QG-3D-FUc">
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8QG-3D-FUc" userLabel="Audio ">
                                             <rect key="frame" x="20" y="53" width="180" height="36"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3''" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Rp-vg-SWq">
                                                     <rect key="frame" x="16" y="11" width="14" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -86,21 +74,32 @@
                                                 <outletCollection property="fd_collapsibleConstraints" destination="2Cb-FP-JnF" id="vP8-vV-hyn"/>
                                             </connections>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="N2v-mY-A7Z">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="108" placeholderIntrinsicHeight="104" translatesAutoresizingMaskIntoConstraints="NO" id="N2v-mY-A7Z">
                                             <rect key="frame" x="20" y="97" width="108" height="104"/>
                                             <color key="backgroundColor" red="0.21568627450980393" green="0.69019607843137254" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="108" id="q1e-IO-kXu"/>
-                                                <constraint firstAttribute="height" constant="104" id="ynN-cd-4tG"/>
-                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="autoCollapse" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <outletCollection property="fd_collapsibleConstraints" destination="ynN-cd-4tG" id="FJ9-kX-2DI"/>
                                                 <outletCollection property="fd_collapsibleConstraints" destination="opt-4J-2VN" id="ctT-xK-qLN"/>
                                             </connections>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Content Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MU0-gY-3S7">
+                                            <rect key="frame" x="20" y="29" width="335" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="autoCollapse" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outletCollection property="fd_collapsibleConstraints" destination="NF7-dF-BMA" id="REE-lB-duB"/>
+                                            </connections>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MU0-gY-3S7" secondAttribute="trailing" priority="999" constant="20" id="CN9-52-qWa"/>
+                                        <constraint firstAttribute="trailing" secondItem="GIQ-P0-RJy" secondAttribute="trailing" constant="15" id="0a9-pw-P7R"/>
+                                        <constraint firstAttribute="trailing" secondItem="MU0-gY-3S7" secondAttribute="trailing" constant="20" id="CN9-52-qWa"/>
                                         <constraint firstItem="GIQ-P0-RJy" firstAttribute="leading" secondItem="d3P-M7-ByW" secondAttribute="leading" constant="20" id="COZ-KE-6Ez"/>
                                         <constraint firstItem="GIQ-P0-RJy" firstAttribute="leading" secondItem="8QG-3D-FUc" secondAttribute="leading" id="Jee-tp-3bd"/>
                                         <constraint firstItem="8QG-3D-FUc" firstAttribute="top" secondItem="MU0-gY-3S7" secondAttribute="bottom" constant="8" id="NF7-dF-BMA"/>
@@ -127,12 +126,12 @@
                             <outlet property="delegate" destination="pGg-6v-bdr" id="Y6K-Cp-Qkv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Flow Layout Cell Test" id="tQt-TN-PWz"/>
+                    <navigationItem key="navigationItem" title="FDCollapsibleConstraints" id="tQt-TN-PWz"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="414.5" y="59.5"/>
+            <point key="canvasLocation" x="414.5" y="60.5"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

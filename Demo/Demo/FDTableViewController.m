@@ -9,6 +9,7 @@
 #import "FDTableViewController.h"
 #import "FDTableViewCell.h"
 #import "FDListEntity.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 
 @interface FDTableViewController ()
 
@@ -23,37 +24,34 @@
     [super viewDidLoad];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 
-    [self seed];
+    [self buildTestDataThen:^{
+        [self.tableView reloadData];
+    }];
 }
 
-- (void)seed
+- (void)buildTestDataThen:(void (^)(void))then
 {
-    self.entities = @[
-        [FDListEntity entityWithTitle:@"Only text"
-                              content:@"content"
-                               images:@[]
-                             andAudio:NO],
-        [FDListEntity entityWithTitle:@"Only audio"
-                              content:@""
-                               images:@[]
-                             andAudio:YES],
-        [FDListEntity entityWithTitle:@"Text + image"
-                              content:@"content"
-                               images:@[@"image1"]
-                             andAudio:NO],
-        [FDListEntity entityWithTitle:@"Audio + images"
-                              content:@""
-                               images:@[@"image1"]
-                             andAudio:YES],
-        [FDListEntity entityWithTitle:@"Text + Audio + images"
-                              content:@"content"
-                               images:@[@"image1"]
-                             andAudio:YES],
-        [FDListEntity entityWithTitle:@"Text + Audio + images"
-                              content:@"content content content content content content content content content content content content content content content content "
-                               images:@[@"image1"]
-                             andAudio:YES]
-    ];
+    // Simulate an async request
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        // Data from `data.json`
+        NSString *dataFilePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
+        NSData *data = [NSData dataWithContentsOfFile:dataFilePath];
+        NSDictionary *rootDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        NSArray *feedDicts = rootDict[@"list"];
+        
+        // Convert to `FDFeedEntity`
+        NSMutableArray *entities = @[].mutableCopy;
+        [feedDicts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [entities addObject:[[FDListEntity alloc] initWithDictionary:obj]];
+        }];
+        self.entities = entities;
+        
+        // Callback
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !then ?: then();
+        });
+    });
 }
 
 #pragma mark - Table View
@@ -70,62 +68,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row >= self.entities.count) {
-        return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FDEmptyCell"];
-    }
-
-    NSString *identifier = NSStringFromClass([FDTableViewCell class]);
-    FDTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    FDTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FDTableViewCell" forIndexPath:indexPath];
     cell.entity = self.entities[indexPath.row];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row >= self.entities.count) {
-        return 0;
-    }
-
-    NSString *identifier = NSStringFromClass([FDTableViewCell class]);
-    CGFloat height = [self cellHeightWithReuseIdentifier:identifier configuration:^(FDTableViewCell *cell) {
+    return [tableView fd_heightForCellWithIdentifier:@"FDTableViewCell" configuration:^(FDTableViewCell *cell) {
         cell.entity = self.entities[indexPath.row];
     }];
-    return height;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:[tableView indexPathsForSelectedRows][0] animated:YES];
-}
-
-#pragma mark - Auto Layout Cell
-
-/// code pulled out from FDAutoLayoutCell.
-- (CGFloat)cellHeightWithReuseIdentifier:(NSString *)identifier configuration:(void (^)(id))configuration
-{
-    static UITableViewCell *layoutCell;
-    if (!layoutCell) {
-        layoutCell = [self.tableView dequeueReusableCellWithIdentifier:identifier];
-    }
-
-    !configuration ?: configuration(layoutCell);
-
-    // add fixed width constraint to confine multiline labels
-    const CGFloat width = CGRectGetWidth(self.tableView.frame);
-    UIView *contentView = layoutCell.contentView;
-    id widthConstraint = [NSLayoutConstraint constraintWithItem:contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:width];
-    [contentView addConstraint:widthConstraint];
-
-    // calculate size with auto layout using system's method
-    CGSize size = [layoutCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    
-    [contentView removeConstraint:widthConstraint];
-
-    // fix for UITableViewCell selected state
-    if (self.tableView.separatorStyle != UITableViewCellSeparatorStyleNone) {
-        size.height += 0.5;
-    }
-    return size.height;
 }
 
 @end
