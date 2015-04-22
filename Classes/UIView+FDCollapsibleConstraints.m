@@ -146,7 +146,7 @@
         const CGSize absentIntrinsicContentSize = CGSizeMake(UIViewNoIntrinsicMetric, UIViewNoIntrinsicMetric);
         
         // Calculated intrinsic content size
-        CGSize contentSize = [self intrinsicContentSize];
+        const CGSize contentSize = [self intrinsicContentSize];
         
         // When this view doesn't have one, or has no intrinsic content size after calculating,
         // it going to be collapsed.
