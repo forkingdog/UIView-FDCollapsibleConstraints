@@ -67,6 +67,7 @@
 /// "IBInspectable" property, more friendly to Interface Builder.
 /// You gonna find this attribute in "Attribute Inspector", toggle "On" to enable.
 /// Why not a "fd_" prefix? Xcode Attribute Inspector will clip it like a shit.
+/// You should not assgin this property directly by code, use "fd_autoCollapse" instead.
 @property (nonatomic, assign, getter=fd_autoCollapse) IBInspectable BOOL autoCollapse;
 
 @end
