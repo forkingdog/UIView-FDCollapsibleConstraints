@@ -26,7 +26,7 @@ First, tell which constraints will be collapsed when the view collapses. We prov
 
 You can assgin it by codes, but it's better to **"connect lines"** in Interface Builder:   
 
-![cell demo](https://github.com/forkingdog/UIView-FDCollapsibleConstraints/blob/master/Sceenshots/screenshot2.gif)
+![connecting lines](https://github.com/forkingdog/UIView-FDCollapsibleConstraints/blob/master/Sceenshots/screenshot2.gif)
 
 ## 2. Collapse a view
 
@@ -35,12 +35,15 @@ Selected constraints will collapse:
 ```
 view.fd_collapsed = YES;
 ```
+![collapsed](https://github.com/forkingdog/UIView-FDCollapsibleConstraints/blob/master/Sceenshots/screenshot5.png)
 
 And recover back properly:
 
 ```
 view.fd_collapsed = NO;
 ```
+
+![recovered](https://github.com/forkingdog/UIView-FDCollapsibleConstraints/blob/master/Sceenshots/screenshot6.png)
 
 # Auto collapse
 
