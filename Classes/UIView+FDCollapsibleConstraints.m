@@ -65,14 +65,8 @@
 {
     NSString *injectedKey = [NSString stringWithUTF8String:sel_getName(@selector(fd_collapsibleConstraints))];
     if ([key isEqualToString:injectedKey]) {
-        
-        // Hook assignments to our custom `fd_collapsibleConstraints` property.
-        NSMutableArray *constraints = (NSMutableArray *)self.fd_collapsibleConstraints;
-        [(NSArray *)value enumerateObjectsUsingBlock:^(NSLayoutConstraint *constraint, NSUInteger idx, BOOL *stop) {
-             // Store original constant value
-             constraint.fd_originalConstant = constraint.constant;
-             [constraints addObject:constraint];
-        }];
+        // This kind of IBOutlet won't trigger property's setter, so we forward it.
+        self.fd_collapsibleConstraints = value;
     } else {
         // Forward the rest of KVC's to original implementation.
         [self fd_setValue:value forKey:key];
@@ -112,8 +106,14 @@
 
 - (void)setFd_collapsibleConstraints:(NSArray *)fd_collapsibleConstraints
 {
+    // Hook assignments to our custom `fd_collapsibleConstraints` property.
     NSMutableArray *constraints = (NSMutableArray *)self.fd_collapsibleConstraints;
-    [constraints setArray:fd_collapsibleConstraints];
+    
+    [fd_collapsibleConstraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *constraint, NSUInteger idx, BOOL *stop) {
+        // Store original constant value
+        constraint.fd_originalConstant = constraint.constant;
+        [constraints addObject:constraint];
+    }];
 }
 
 @end
