@@ -37,7 +37,7 @@ view.fd_collapsed = YES;
 ```
 ![collapsed](https://github.com/forkingdog/UIView-FDCollapsibleConstraints/blob/master/Sceenshots/screenshot5.png)
 
-And recover back properly:
+And expand back when:
 
 ```
 view.fd_collapsed = NO;
@@ -64,8 +64,24 @@ imageView.image = nil; (auto => imageView.fd_collapsed = YES)
 imageView.image = [UIImage imageNamed:@"forkingdog"]; (auto => imageView.fd_collapsed = NO)
 ```
 
+We've also offered a Interface Builder friendly way to enable `auto collapse`:  
 
+```
+@property (nonatomic, assign, getter=fd_autoCollapse) IBInspectable BOOL autoCollapse;
+```
 
+Here's what you may find in `Attribute Inspector`
+
+![auto collapse](https://github.com/forkingdog/UIView-FDCollapsibleConstraints/blob/master/Sceenshots/screenshot4.png)
+
+It's behavior is same as setting `fd_autoCollapse` property in code.
+
+# Installation  
+
+Cocoapods: 
+```
+pod search UIView+FDCollapsibleConstraints
+```
 
 # License
 MIT
