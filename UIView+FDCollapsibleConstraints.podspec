@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "UIView+FDCollapsibleConstraints"
-  s.version      = "1.0"
+  s.version      = "1.1"
   s.summary      = "Collapsible auto layout constraints."
   s.description  = "Collapse a view with its selected auto layout constraints in interface builder."
   s.homepage     = "https://github.com/forkingdog/UIView-FDCollapsibleConstraints"
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.platform = :ios, "6.0"
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  s.source = { :git => "https://github.com/forkingdog/UIView-FDCollapsibleConstraints.git", :tag => "1.0" }
+  s.source = { :git => "https://github.com/forkingdog/UIView-FDCollapsibleConstraints.git", :tag => "1.1" }
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.source_files  = "Classes/*.{h,m}"
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
