@@ -30,7 +30,7 @@ You can assgin it by codes, but it's better to **"connect lines"** in Interface 
 
 ## 2. Collapse a view
 
-Selected constraints will collapse:  
+Selected constraints will collapse when:  
 
 ```
 view.fd_collapsed = YES;
@@ -47,7 +47,22 @@ view.fd_collapsed = NO;
 
 # Auto collapse
 
+Not every view needs to add a width or height constraint, views like `UILabel`, `UIImageView` have their `Intrinsic content size` when they have content in it. For these views, we provide a `Auto collapse` property, when its content is gone, selected constraints will collapse automatically.  
+You can enable auto collapse by:  
 
+```
+label.fd_autoCollapse = YES;
+imageView.fd_autoCollapse = YES;
+```
+
+And it will work as you expect: 
+
+```
+label.text = nil/*or @""*/; (auto => label.fd_collapsed = YES)
+label.text = @"forkingdog"; (auto => label.fd_collapsed = NO)
+imageView.image = nil; (auto => imageView.fd_collapsed = YES)
+imageView.image = [UIImage imageNamed:@"forkingdog"]; (auto => imageView.fd_collapsed = NO)
+```
 
 
 
