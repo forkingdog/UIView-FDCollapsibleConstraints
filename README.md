@@ -2,7 +2,7 @@
 ![forkingdog](https://cloud.githubusercontent.com/assets/219689/7244961/4209de32-e816-11e4-87bc-b161c442d348.png)
 
 # Overview
-`UIView+FDCollapsibleConstraints` builds to **collapse** a view and its relevant layout constraints. 
+`UIView+FDCollapsibleConstraints` builds to **collapse** a view and its relevant layout constraints, samulating a **"Flow Layout"** mode.
 
 ## Demo 1 
 This demo collapses the `forkingdog` image view and its bottom margin constraint.  
