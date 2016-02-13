@@ -78,7 +78,7 @@ It's behavior is same as setting `fd_autoCollapse` property in code.
 
 # Installation  
 
-Cocoapods: 
+CocoaPods: 
 ```
 pod search UIView+FDCollapsibleConstraints
 ```
