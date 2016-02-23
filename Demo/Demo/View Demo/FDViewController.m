@@ -7,7 +7,7 @@
 //
 
 #import "FDViewController.h"
-#import "UIView+FDCollapsibleConstraints.h"
+#import <FDCollapsibleConstraints/FDCollapsibleConstraints.h>
 
 @interface FDViewController ()
 
