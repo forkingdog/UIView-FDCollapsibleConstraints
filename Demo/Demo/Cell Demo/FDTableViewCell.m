@@ -8,7 +8,7 @@
 
 #import "FDTableViewCell.h"
 #import "FDListEntity.h"
-#import "UIView+FDCollapsibleConstraints.h"
+#import <FDCollapsibleConstraints/FDCollapsibleConstraints.h>
 
 @interface FDTableViewCell ()
 
